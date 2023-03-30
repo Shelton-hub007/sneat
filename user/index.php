@@ -37,14 +37,14 @@
     <div class="layout-container">
 
       <!-- Menu -->
-      <?php include_once __DIR__ . '/../template/aside.php' ?>
+      <?php include_once __DIR__ . '/../aside.php' ?>
       <!-- / Menu -->
 
       <!-- Layout container -->
       <div class="layout-page">
 
         <!-- Navbar -->
-        <?php include_once __DIR__ . '/../template/nav.php' ?>
+        <?php include_once __DIR__ . '/../nav.php' ?>
         <!-- / Navbar -->
 
         <!-- Content wrapper -->
@@ -216,7 +216,7 @@
           <!-- / Content -->
 
           <!-- Footer -->
-          <?php include_once __DIR__ . '/../template/footer.php' ?>
+          <?php include_once __DIR__ . '/../footer.php' ?>
           <!-- / Footer -->
 
           <div class="content-backdrop fade"></div>
