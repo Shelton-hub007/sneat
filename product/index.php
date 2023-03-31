@@ -4,24 +4,23 @@ include_once __DIR__ . '/../database.php';
 $BASE_URL = './../';
 include_once __DIR__ . '/../header.php';
 ?>
-
 <div class="container-xxl flex-grow-1 container-p-y">
   <h4 class="fw-bold py-3 mb-4">
-    <a href="dashboard.php"><span class="text-muted fw-light">Dashboard /</span></a><span class="text-muted fw-light">Usuário</span>
+    <a href="dashboard.php"><span class="text-muted fw-light">Dashboard /</span></a><span class="text-muted fw-light">Produto</span>
   </h4>
   <div class="row">
     <!-- Basic with Icons -->
     <div class="col-xxl">
       <div class="card">
         <div class="card-header d-flex align-items-center justify-content-between">
-          <h5 class="mb-0">Lista de Usuários</h5>
+          <h5 class="mb-0">Lista de Produtos</h5>
 
           <div class="d-flex">
             <div class="input-group input-group-merge mx-2">
               <span class="input-group-text" id="basic-addon-search31"><i class="bx bx-search"></i></span>
               <input type="text" class="form-control" placeholder="Procurar..." aria-label="Procurar..." aria-describedby="basic-addon-search31">
             </div>
-            <a href="./user/add.php">
+            <a href="./product/add.php">
               <button type="button" class="btn btn-icon btn-outline-primary">
                 <span class="tf-icons bx bx-plus"></span>
               </button>
@@ -34,22 +33,22 @@ include_once __DIR__ . '/../header.php';
             <thead>
               <tr>
                 <th>#</th>
+                <th>Códio</th>
                 <th>Nome</th>
-                <th>Nome de Usuário</th>
-                <th>Email</th>
-                <th>N. de Telefone</th>
+                <th>Preço</th>
                 <th>Acção</th>
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
               <?php
               // faz a seleção do dados na Tabela	
-              $data = mysqli_query($connection, "SELECT * FROM users ORDER BY id ASC");
+              $data = mysqli_query($connection, "SELECT * FROM products ORDER BY id ASC");
+
               // lista os dados
               while ($value = mysqli_fetch_array($data)) {
 
                 // PDO
-                // $stmt = $pdo->prepare("SELECT * FROM users ORDER BY id DESC");
+                // $stmt = $pdo->prepare("SELECT * FROM products ORDER BY id ASC");
                 // $stmt->execute();
                 // $values = $stmt->fetchAll();
 
@@ -58,17 +57,16 @@ include_once __DIR__ . '/../header.php';
                 <tr>
                   <td><?php echo $value['id'] ?></td>
                   <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong><?php echo $value['name'] ?></strong></td>
-                  <td><?php echo $value['username'] ?></td>
-                  <td><?php echo $value['email'] ?></td>
-                  <td><span class="badge bg-label-primary me-1"><?php echo $value['contact'] ?></span></td>
+                  <td><?php echo $value['cod'] ?></td>
+                  <td><span class="badge bg-label-primary me-1"><?php echo $value['price'] ?></span></td>
                   <td>
                     <div class="dropdown">
                       <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                         <i class="bx bx-dots-vertical-rounded"></i>
                       </button>
                       <div class="dropdown-menu">
-                        <a class="dropdown-item" href="user/edit.php?id=<?php echo $value['id'] ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                        <a class="dropdown-item" href="user/deleteQuery.php?id=<?php echo $value['id'] ?>"><i class="bx bx-trash me-1"></i> Delete</a>
+                        <a class="dropdown-item" href="product/edit.php?id=<?php echo $value['id'] ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                        <a class="dropdown-item" href="product/deleteQuery.php?id=<?php echo $value['id'] ?>"><i class="bx bx-trash me-1"></i> Delete</a>
                       </div>
                     </div>
                   </td>
